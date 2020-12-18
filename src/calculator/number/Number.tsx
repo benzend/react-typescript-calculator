@@ -1,7 +1,9 @@
-export const Number = () => {
+export const Number = ({ nums }: any) => {
   return (
     <>
-      <h1>This is a number</h1>
+      {nums.map((num: number) => (
+        <div>{num}</div>
+      ))}
     </>
   );
 };
