@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { makeStyles, Box } from "@material-ui/core";
 
 import { Display } from "./display/Display";
@@ -32,12 +33,15 @@ const useStyles = makeStyles(() => ({
 export const Calculator = () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const ops = ["+", "-", "%", "*"];
+  const [currnetNum1, setCurrnetNum1] = useState(null);
+  const [currnetNum2, setCurrnetNum2] = useState(null);
   const classes = useStyles();
+  const add = (num1: number, num2: number) => num1 + num2;
   return (
     <Box className={classes.root}>
       <Display />
       <Box className={classes.numbersStyle}>
-        {nums.map((num: any) => (
+        {nums.map((num: number) => (
           <Number num={num} />
         ))}
       </Box>
