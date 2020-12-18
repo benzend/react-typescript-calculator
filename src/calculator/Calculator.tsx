@@ -61,6 +61,24 @@ export const Calculator = () => {
       const unstringed2: number = parseInt(currentNum2);
       const newTotal = doshit.add(unstringed1, unstringed2);
       setTotal(newTotal);
+    } else if (currentOperator === "-" && currentNum2 !== null) {
+      console.log(currentNum2);
+      const unstringed1: number = parseInt(currentNum1);
+      const unstringed2: number = parseInt(currentNum2);
+      const newTotal = doshit.subtract(unstringed1, unstringed2);
+      setTotal(newTotal);
+    } else if (currentOperator === "%" && currentNum2 !== null) {
+      console.log(currentNum2);
+      const unstringed1: number = parseInt(currentNum1);
+      const unstringed2: number = parseInt(currentNum2);
+      const newTotal = doshit.divide(unstringed1, unstringed2);
+      setTotal(newTotal);
+    } else if (currentOperator === "*" && currentNum2 !== null) {
+      console.log(currentNum2);
+      const unstringed1: number = parseInt(currentNum1);
+      const unstringed2: number = parseInt(currentNum2);
+      const newTotal = doshit.multiply(unstringed1, unstringed2);
+      setTotal(newTotal);
     }
   };
   return (
