@@ -4,10 +4,11 @@ const useStyles = makeStyles(() => ({
   root: {
     height: "70px",
     width: "70px",
-    background: "lightGreen",
+    background: "pink",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    margin: "10px",
   },
 }));
 

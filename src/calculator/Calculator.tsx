@@ -21,6 +21,11 @@ const useStyles = makeStyles(() => ({
     justifyItems: "stretch",
     alignItems: "stretch",
   },
+  operatorsStyle: {
+    display: "flex",
+    justifyItems: "space-around",
+    alignItems: "center",
+  },
 }));
 
 // We're going to store all state and data in here
@@ -36,9 +41,11 @@ export const Calculator = () => {
           <Number num={num} />
         ))}
       </Box>
-      {ops.map((op: string) => (
-        <Operator op={op} />
-      ))}
+      <Box className={classes.operatorsStyle}>
+        {ops.map((op: string) => (
+          <Operator op={op} />
+        ))}
+      </Box>
     </Box>
   );
 };
