@@ -32,7 +32,7 @@ export const Number = ({
   return (
     <Box
       onClick={() => {
-        if (currentOperator !== "") {
+        if (currentOperator === "") {
           setCurrentNum1(currentNum1 + num);
         } else {
           setCurrentNum2(currentNum2 + num);
