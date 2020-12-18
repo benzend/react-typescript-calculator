@@ -10,19 +10,32 @@ const useStyles = makeStyles(() => ({
     width: "500px",
     background: "lightBlue",
   },
+  numbersStyle: {
+    width: "50%",
+    heigth: "50%",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gridTemplateRows: "1fr 1fr 1fr 1fr",
+    gridRowGap: "10px",
+    gridColumnGap: "10px",
+    justifyItems: "stretch",
+    alignItems: "stretch",
+  },
 }));
 
 // We're going to store all state and data in here
 export const Calculator = () => {
-  const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const ops = ["+", "-", "%", "*"];
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <Display />
-      {nums.map((num: any) => (
-        <Number num={num} />
-      ))}
+      <Box className={classes.numbersStyle}>
+        {nums.map((num: any) => (
+          <Number num={num} />
+        ))}
+      </Box>
       {ops.map((op: string) => (
         <Operator op={op} />
       ))}
