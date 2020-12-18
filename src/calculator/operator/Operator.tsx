@@ -14,9 +14,25 @@ const useStyles = makeStyles(() => ({
 
 interface Props {
   op: string;
+  doshit: any;
+  currentNum1: number | null;
+  currentNum2: number | null;
+  total: number;
+  setTotal: any;
 }
 
-export const Operator = ({ op }: Props) => {
+export const Operator = ({
+  total,
+  setTotal,
+  currentNum1,
+  currentNum2,
+  doshit,
+  op,
+}: Props) => {
+  if (op === "+" && currentNum2 !== null) {
+    const newTotal = doshit.add(currentNum1, currentNum2);
+    setTotal(newTotal);
+  }
   const classes = useStyles();
   return (
     <Box className={classes.root}>

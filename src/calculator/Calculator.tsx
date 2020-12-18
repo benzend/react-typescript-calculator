@@ -4,6 +4,7 @@ import { makeStyles, Box } from "@material-ui/core";
 import { Display } from "./display/Display";
 import { Operator } from "./operator/Operator";
 import { Number } from "./number/Number";
+import { Equals } from "./Equals";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -38,18 +39,20 @@ export const Calculator = () => {
   const [total, setTotal] = useState(0);
   const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
-  function add(num1: number, num2: number) {
-    return num1 + num2;
-  }
-  function subtract(num1: number, num2: number) {
-    return num1 - num2;
-  }
-  function multiply(num1: number, num2: number) {
-    return num1 * num2;
-  }
-  function divide(num1: number, num2: number) {
-    return num1 / num2;
-  }
+  const doshit = {
+    add(num1: number, num2: number) {
+      return num1 + num2;
+    },
+    subtract(num1: number, num2: number) {
+      return num1 - num2;
+    },
+    multiply(num1: number, num2: number) {
+      return num1 * num2;
+    },
+    divide(num1: number, num2: number) {
+      return num1 / num2;
+    },
+  };
   return (
     <Box className={classes.root}>
       <Display
@@ -70,9 +73,17 @@ export const Calculator = () => {
       </Box>
       <Box className={classes.operatorsStyle}>
         {ops.map((op: string) => (
-          <Operator op={op} />
+          <Operator
+            currentNum1={currentNum1}
+            currentNum2={currentNum2}
+            doshit={doshit}
+            op={op}
+            total={total}
+            setTotal={setTotal}
+          />
         ))}
       </Box>
+      <Equals />
     </Box>
   );
 };
