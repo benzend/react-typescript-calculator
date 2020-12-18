@@ -1,6 +1,6 @@
 interface Props {
-  currentNum1: number | null;
-  currentNum2: number | null;
+  currentNum1: string;
+  currentNum2: string;
   currentOperator: string;
   total: number;
 }
@@ -14,10 +14,16 @@ export const Display = ({
   return (
     <>
       <h1>
-        <span>{currentNum1}</span>
-        <span>{currentNum2}</span>
-        <span>{currentOperator}</span>
-        <span>{total}</span>
+        {total === 0 ? (
+          <>
+            <span>{currentNum1}</span>
+            <span>{currentOperator}</span>
+            <span>{currentNum2}</span>
+          </>
+        ) : null}
+
+        {currentNum1 === "" ? <span>{total}</span> : null}
+        {total !== 0 ? <span>{total}</span> : null}
       </h1>
     </>
   );
