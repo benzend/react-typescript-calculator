@@ -1,6 +1,10 @@
-export const Equals = () => {
+interface Props {
+  equalsHandler: any;
+}
+
+export const Equals = ({ equalsHandler }: Props) => {
   return (
-    <div>
+    <div onClick={equalsHandler}>
       <h1>=</h1>
     </div>
   );

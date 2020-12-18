@@ -34,8 +34,8 @@ const useStyles = makeStyles(() => ({
 export const Calculator = () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const ops = ["+", "-", "%", "*"];
-  const [currentNum1, setCurrentNum1] = useState(null);
-  const [currentNum2, setCurrentNum2] = useState(null);
+  const [currentNum1, setCurrentNum1] = useState<any>(null);
+  const [currentNum2, setCurrentNum2] = useState<any>(null);
   const [total, setTotal] = useState(0);
   const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
@@ -52,6 +52,13 @@ export const Calculator = () => {
     divide(num1: number, num2: number) {
       return num1 / num2;
     },
+  };
+
+  const equalsHandler = () => {
+    if (currentOperator === "+" && currentNum2 !== null) {
+      const newTotal = doshit.add(currentNum1, currentNum2);
+      setTotal(newTotal);
+    }
   };
   return (
     <Box className={classes.root}>
@@ -73,17 +80,10 @@ export const Calculator = () => {
       </Box>
       <Box className={classes.operatorsStyle}>
         {ops.map((op: string) => (
-          <Operator
-            currentNum1={currentNum1}
-            currentNum2={currentNum2}
-            doshit={doshit}
-            op={op}
-            total={total}
-            setTotal={setTotal}
-          />
+          <Operator op={op} />
         ))}
       </Box>
-      <Equals />
+      <Equals equalsHandler={equalsHandler} />
     </Box>
   );
 };
