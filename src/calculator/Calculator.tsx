@@ -60,7 +60,12 @@ export const Calculator = () => {
       />
       <Box className={classes.numbersStyle}>
         {nums.map((num: number) => (
-          <Number num={num} />
+          <Number
+            setCurrentNum1={setCurrentNum1}
+            setCurrentNum2={setCurrentNum2}
+            currentNum1={currentNum1}
+            num={num}
+          />
         ))}
       </Box>
       <Box className={classes.operatorsStyle}>

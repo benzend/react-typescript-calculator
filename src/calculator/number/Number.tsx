@@ -13,9 +13,30 @@ const useStyles = makeStyles(() => ({
 
 interface Props {
   num: number;
+  currentNum1: number | null;
+  setCurrentNum1: any;
+  setCurrentNum2: any;
 }
 
-export const Number = ({ num }: Props) => {
+export const Number = ({
+  num,
+  currentNum1,
+  setCurrentNum1,
+  setCurrentNum2,
+}: Props) => {
   const classes = useStyles();
-  return <Box className={classes.root}>{num}</Box>;
+  return (
+    <Box
+      onClick={() => {
+        if (currentNum1 === null) {
+          setCurrentNum1(num);
+        } else {
+          setCurrentNum2(num);
+        }
+      }}
+      className={classes.root}
+    >
+      {num}
+    </Box>
+  );
 };
