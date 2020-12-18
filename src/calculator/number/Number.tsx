@@ -1,9 +1,7 @@
-export const Number = ({ nums }: any) => {
+export const Number = ({ num }: any) => {
   return (
     <>
-      {nums.map((num: number) => (
-        <div>{num}</div>
-      ))}
+      <p>{num}</p>
     </>
   );
 };

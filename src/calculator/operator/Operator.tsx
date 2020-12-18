@@ -1,10 +1,7 @@
-export const Operator = ({ ops }: any) => {
+export const Operator = ({ op }: any) => {
   return (
     <>
-      <h1>Operator</h1>
-      {ops.map((op: string) => (
-        <div>{op}</div>
-      ))}
+      <p>{op}</p>
     </>
   );
 };
