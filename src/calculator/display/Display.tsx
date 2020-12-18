@@ -16,12 +16,11 @@ export const Display = ({
       <h1>
         {total === 0 ? (
           <>
-            <span>{currentNum1}</span>
-            <span>{currentOperator}</span>
-            <span>{currentNum2}</span>
+            <span> {currentNum1} </span>
+            <span> {currentOperator} </span>
+            <span> {currentNum2} </span>
           </>
         ) : null}
-
         {currentNum1 === "" ? <span>{total}</span> : null}
         {total !== 0 ? <span>{total}</span> : null}
       </h1>
