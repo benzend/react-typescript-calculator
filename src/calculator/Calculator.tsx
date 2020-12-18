@@ -35,8 +35,20 @@ export const Calculator = () => {
   const ops = ["+", "-", "%", "*"];
   const [currnetNum1, setCurrnetNum1] = useState(null);
   const [currnetNum2, setCurrnetNum2] = useState(null);
+  const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
-  const add = (num1: number, num2: number) => num1 + num2;
+  function add(num1: number, num2: number) {
+    return num1 + num2;
+  }
+  function subtract(num1: number, num2: number) {
+    return num1 - num2;
+  }
+  function multiply(num1: number, num2: number) {
+    return num1 * num2;
+  }
+  function divide(num1: number, num2: number) {
+    return num1 / num2;
+  }
   return (
     <Box className={classes.root}>
       <Display />
