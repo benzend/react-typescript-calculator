@@ -33,8 +33,9 @@ const useStyles = makeStyles(() => ({
 export const Calculator = () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const ops = ["+", "-", "%", "*"];
-  const [currnetNum1, setCurrnetNum1] = useState(null);
-  const [currnetNum2, setCurrnetNum2] = useState(null);
+  const [currentNum1, setCurrentNum1] = useState(null);
+  const [currentNum2, setCurrentNum2] = useState(null);
+  const [total, setTotal] = useState(0);
   const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
   function add(num1: number, num2: number) {
@@ -51,7 +52,12 @@ export const Calculator = () => {
   }
   return (
     <Box className={classes.root}>
-      <Display />
+      <Display
+        currentNum1={currentNum1}
+        currentNum2={currentNum2}
+        currentOperator={currentOperator}
+        total={total}
+      />
       <Box className={classes.numbersStyle}>
         {nums.map((num: number) => (
           <Number num={num} />
