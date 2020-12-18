@@ -32,10 +32,10 @@ const useStyles = makeStyles(() => ({
 
 // We're going to store all state and data in here
 export const Calculator = () => {
-  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const ops = ["+", "-", "%", "*"];
-  const [currentNum1, setCurrentNum1] = useState<any>(null);
-  const [currentNum2, setCurrentNum2] = useState<any>(null);
+  const [currentNum1, setCurrentNum1] = useState<any>("");
+  const [currentNum2, setCurrentNum2] = useState<any>("");
   const [total, setTotal] = useState(0);
   const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
@@ -69,12 +69,13 @@ export const Calculator = () => {
         total={total}
       />
       <Box className={classes.numbersStyle}>
-        {nums.map((num: number) => (
+        {nums.map((num: string) => (
           <Number
             setCurrentNum1={setCurrentNum1}
             setCurrentNum2={setCurrentNum2}
             currentOperator={currentOperator}
             currentNum1={currentNum1}
+            currentNum2={currentNum2}
             num={num}
           />
         ))}

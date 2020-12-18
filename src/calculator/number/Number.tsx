@@ -12,8 +12,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface Props {
-  num: number;
-  currentNum1: number | null;
+  num: string;
+  currentNum1: string;
+  currentNum2: string;
   setCurrentNum1: any;
   setCurrentNum2: any;
   currentOperator: string;
@@ -22,6 +23,7 @@ interface Props {
 export const Number = ({
   num,
   currentNum1,
+  currentNum2,
   setCurrentNum1,
   setCurrentNum2,
   currentOperator,
@@ -31,9 +33,9 @@ export const Number = ({
     <Box
       onClick={() => {
         if (currentOperator !== "") {
-          setCurrentNum1(num);
+          setCurrentNum1(currentNum1 + num);
         } else {
-          setCurrentNum2(num);
+          setCurrentNum2(currentNum2 + num);
         }
       }}
       className={classes.root}
