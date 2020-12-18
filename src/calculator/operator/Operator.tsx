@@ -1,7 +1,25 @@
-export const Operator = ({ op }: any) => {
+import { makeStyles, Box } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    height: "70px",
+    width: "70px",
+    background: "lightGreen",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
+
+interface Props {
+  op: string;
+}
+
+export const Operator = ({ op }: Props) => {
+  const classes = useStyles();
   return (
-    <>
+    <Box className={classes.root}>
       <p>{op}</p>
-    </>
+    </Box>
   );
 };

@@ -11,7 +11,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Number = ({ num }: any) => {
+interface Props {
+  num: number;
+}
+
+export const Number = ({ num }: Props) => {
   const classes = useStyles();
   return <Box className={classes.root}>{num}</Box>;
 };
