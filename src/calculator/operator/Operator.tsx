@@ -14,12 +14,13 @@ const useStyles = makeStyles(() => ({
 
 interface Props {
   op: string;
+  setCurrentOperator: any;
 }
 
-export const Operator = ({ op }: Props) => {
+export const Operator = ({ op, setCurrentOperator }: Props) => {
   const classes = useStyles();
   return (
-    <Box className={classes.root}>
+    <Box onClick={() => setCurrentOperator(op)} className={classes.root}>
       <p>{op}</p>
     </Box>
   );

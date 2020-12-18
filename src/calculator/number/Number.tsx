@@ -16,6 +16,7 @@ interface Props {
   currentNum1: number | null;
   setCurrentNum1: any;
   setCurrentNum2: any;
+  currentOperator: string;
 }
 
 export const Number = ({
@@ -23,12 +24,13 @@ export const Number = ({
   currentNum1,
   setCurrentNum1,
   setCurrentNum2,
+  currentOperator,
 }: Props) => {
   const classes = useStyles();
   return (
     <Box
       onClick={() => {
-        if (currentNum1 === null) {
+        if (currentOperator !== "") {
           setCurrentNum1(num);
         } else {
           setCurrentNum2(num);

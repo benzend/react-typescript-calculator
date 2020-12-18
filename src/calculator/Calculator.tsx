@@ -73,6 +73,7 @@ export const Calculator = () => {
           <Number
             setCurrentNum1={setCurrentNum1}
             setCurrentNum2={setCurrentNum2}
+            currentOperator={currentOperator}
             currentNum1={currentNum1}
             num={num}
           />
@@ -80,7 +81,7 @@ export const Calculator = () => {
       </Box>
       <Box className={classes.operatorsStyle}>
         {ops.map((op: string) => (
-          <Operator op={op} />
+          <Operator setCurrentOperator={setCurrentOperator} op={op} />
         ))}
       </Box>
       <Equals equalsHandler={equalsHandler} />
