@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
 
 // We're going to store all state and data in here
 export const Calculator = () => {
-  const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "-"];
   const ops = ["+", "-", "%", "*", "clr"];
   const [currentNum1, setCurrentNum1] = useState<string>("");
   const [currentNum2, setCurrentNum2] = useState<string>("");
@@ -55,34 +55,34 @@ export const Calculator = () => {
   };
 
   const equalsHandler = () => {
-    if (currentOperator === "+" && currentNum2 !== null) {
+    if (currentOperator === "+" && currentNum2 !== "") {
       const unstringed: number[] = [
-        parseInt(currentNum1),
-        parseInt(currentNum2),
+        parseFloat(currentNum1),
+        parseFloat(currentNum2),
       ];
       const newTotal = doshit.add(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
-    } else if (currentOperator === "-" && currentNum2 !== null) {
+    } else if (currentOperator === "-" && currentNum2 !== "") {
       const unstringed: number[] = [
-        parseInt(currentNum1),
-        parseInt(currentNum2),
+        parseFloat(currentNum1),
+        parseFloat(currentNum2),
       ];
       const newTotal = doshit.subtract(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
-    } else if (currentOperator === "%" && currentNum2 !== null) {
+    } else if (currentOperator === "%" && currentNum2 !== "") {
       const unstringed: number[] = [
-        parseInt(currentNum1),
-        parseInt(currentNum2),
+        parseFloat(currentNum1),
+        parseFloat(currentNum2),
       ];
       const newTotal = doshit.divide(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
-    } else if (currentOperator === "*" && currentNum2 !== null) {
+    } else if (currentOperator === "*" && currentNum2 !== "") {
       const unstringed: number[] = [
-        parseInt(currentNum1),
-        parseInt(currentNum2),
+        parseFloat(currentNum1),
+        parseFloat(currentNum2),
       ];
       const newTotal = doshit.multiply(unstringed);
       setCurrentNum1(newTotal.toString());
