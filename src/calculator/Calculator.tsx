@@ -87,6 +87,14 @@ export const Calculator = () => {
     }
   };
 
+  const addDot = () => {
+    if (currentOperator === "" && !currentNum1.includes(".")) {
+      setCurrentNum1((prev) => prev + ".");
+    } else if (currentOperator && !currentNum2.includes(".")) {
+      setCurrentNum2((prev) => prev + ".");
+    }
+  };
+
   return (
     <Box>
       <Box>
@@ -118,7 +126,7 @@ export const Calculator = () => {
       </Box>
       <Clear reset={reset} />
       <NegativeInt negativeHandler={negativeHandler} />
-      <Dot />
+      <Dot addDot={addDot} />
       <Equals equalsHandler={equalsHandler} />
     </Box>
   );
