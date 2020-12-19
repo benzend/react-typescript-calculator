@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
     background: "#f1f1f1",
+    marginBottom: "10px",
   },
 }));
 

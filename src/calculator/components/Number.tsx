@@ -15,8 +15,8 @@ interface Props {
   num: string;
   currentNum1: string;
   currentNum2: string;
-  setCurrentNum1: any;
-  setCurrentNum2: any;
+  setCurrentNum1: Function;
+  setCurrentNum2: Function;
   currentOperator: string;
 }
 

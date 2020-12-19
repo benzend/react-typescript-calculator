@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 
 interface Props {
   op: string;
-  setCurrentOperator: any;
+  setCurrentOperator: Function;
 }
 
 export const Operator = ({ op, setCurrentOperator }: Props) => {

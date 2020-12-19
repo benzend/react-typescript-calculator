@@ -9,18 +9,17 @@ export const Display = ({
   currentNum1,
   currentNum2,
   currentOperator,
-  total,
 }: Props) => {
   return (
     <>
       {currentNum1 ? (
-        <h1>
+        <h2>
           <span> {currentNum1} </span>
           <span> {currentOperator} </span>
           <span> {currentNum2} </span>
-        </h1>
+        </h2>
       ) : (
-        <h1>0</h1>
+        <h2>0</h2>
       )}
     </>
   );
