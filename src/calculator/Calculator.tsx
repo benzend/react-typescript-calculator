@@ -79,6 +79,13 @@ export const Calculator = () => {
     setCurrentNum2("");
     setCurrentOperator("");
   };
+  const negativeHandler = () => {
+    if (currentOperator === "") {
+      setCurrentNum1((prev) => (parseFloat(prev) * -1).toString());
+    } else {
+      setCurrentNum2((prev) => (parseFloat(prev) * -1).toString());
+    }
+  };
 
   return (
     <Box>
@@ -110,7 +117,7 @@ export const Calculator = () => {
         ))}
       </Box>
       <Clear reset={reset} />
-      <NegativeInt />
+      <NegativeInt negativeHandler={negativeHandler} />
       <Dot />
       <Equals equalsHandler={equalsHandler} />
     </Box>

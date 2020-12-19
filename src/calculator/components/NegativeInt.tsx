@@ -1,5 +1,9 @@
 import { Button } from "@material-ui/core";
 
-export const NegativeInt = () => {
-  return <Button>-</Button>;
+interface Props {
+  negativeHandler: any;
+}
+
+export const NegativeInt = ({ negativeHandler }: Props) => {
+  return <Button onClick={negativeHandler}>-</Button>;
 };
