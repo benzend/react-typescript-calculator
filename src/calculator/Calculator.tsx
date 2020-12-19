@@ -2,51 +2,22 @@
 import { useState } from "react";
 
 // External Packages
-import { makeStyles, Box } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 // Components
 import { Display } from "./components/Display";
 import { Operator } from "./components/Operator";
 import { Number } from "./components/Number";
 import { Equals } from "./components/Equals";
+import { NegativeInt } from "./components/NegativeInt";
+import { Dot } from "./components/Dot";
 
 // Utils
 import { handleOps } from "../utils/utils";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    height: "800px",
-    width: "800px",
-    background: "lightBlue",
-    padding: "10px",
-  },
-  numbersStyle: {
-    display: "flex",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gridTemplateRows: "1fr 1fr 1fr",
-    flexWrap: "wrap",
-    gridRowGap: "10px",
-    gridColumnGap: "10px",
-    justifyItems: "stretch",
-    alignItems: "stretch",
-  },
-  operatorsStyle: {
-    display: "flex",
-    justifyItems: "space-around",
-    alignItems: "center",
-  },
-  displayStyle: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "#f1f1f1",
-    marginBottom: "10px",
-  },
-}));
-
 export const Calculator = () => {
   // Data
-  const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "-"];
+  const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const ops = ["+", "-", "%", "*", "clr"];
 
   //State
@@ -56,7 +27,6 @@ export const Calculator = () => {
   const [currentOperator, setCurrentOperator] = useState<string>("");
 
   //Style
-  const { root, numbersStyle, operatorsStyle, displayStyle } = useStyles();
 
   // Functions
   const { add, subtract, divide, multiply } = handleOps;
@@ -108,8 +78,8 @@ export const Calculator = () => {
   }
 
   return (
-    <Box className={root}>
-      <Box className={displayStyle}>
+    <Box>
+      <Box>
         {" "}
         <Display
           currentNum1={currentNum1}
@@ -119,7 +89,7 @@ export const Calculator = () => {
         />
       </Box>
 
-      <Box className={numbersStyle}>
+      <Box>
         {nums.map((num: string) => (
           <Number
             setCurrentNum1={setCurrentNum1}
@@ -131,11 +101,13 @@ export const Calculator = () => {
           />
         ))}
       </Box>
-      <Box className={operatorsStyle}>
+      <Box>
         {ops.map((op: string) => (
           <Operator setCurrentOperator={setCurrentOperator} op={op} />
         ))}
       </Box>
+      <NegativeInt />
+      <Dot />
       <Equals equalsHandler={equalsHandler} />
     </Box>
   );
