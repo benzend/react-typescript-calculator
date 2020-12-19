@@ -6,9 +6,5 @@ interface Props {
 }
 
 export const Operator = ({ op, setCurrentOperator }: Props) => {
-  return (
-    <Button onClick={() => setCurrentOperator(op)}>
-      <p>{op}</p>
-    </Button>
-  );
+  return <Button onClick={() => setCurrentOperator(op)}>{op}</Button>;
 };

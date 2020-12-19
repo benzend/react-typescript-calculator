@@ -63,6 +63,10 @@ export const Calculator = () => {
       const newTotal = multiply(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
+    } else {
+      alert(
+        "You have to have at least two number to do anything. Try using '+' and typing in a number afterwards"
+      );
     }
 
     setCurrentNum2("");
