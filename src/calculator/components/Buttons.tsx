@@ -46,6 +46,9 @@ export const Buttons = ({
       setCurrentNum2((prev: string) => (parseFloat(prev) * -1).toString());
     }
   };
+  const opHandler = (op: string) => {
+    currentNum1 !== "" && setCurrentOperator(op);
+  };
   const addDot = () => {
     if (currentOperator === "" && !currentNum1.includes(".")) {
       setCurrentNum1((prev: string) => prev + ".");
@@ -112,7 +115,7 @@ export const Buttons = ({
       </Box>
       <Box>
         {ops.map((op: string) => (
-          <Operator setCurrentOperator={setCurrentOperator} op={op} />
+          <Operator opHandler={opHandler} op={op} />
         ))}
         <NegativeInt negativeHandler={negativeHandler} />
       </Box>

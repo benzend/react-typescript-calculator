@@ -2,9 +2,9 @@ import { Button } from "@material-ui/core";
 
 interface Props {
   op: string;
-  setCurrentOperator: Function;
+  opHandler: any;
 }
 
-export const Operator = ({ op, setCurrentOperator }: Props) => {
-  return <Button onClick={() => setCurrentOperator(op)}>{op}</Button>;
+export const Operator = ({ op, opHandler }: Props) => {
+  return <Button onClick={() => opHandler(op)}>{op}</Button>;
 };
