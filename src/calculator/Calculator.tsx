@@ -15,16 +15,16 @@ import { handleOps } from "../utils/utils";
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: "500px",
-    width: "500px",
+    height: "800px",
+    width: "800px",
     background: "lightBlue",
+    padding: "10px",
   },
   numbersStyle: {
-    width: "50%",
-    heigth: "50%",
-    display: "grid",
+    display: "flex",
     gridTemplateColumns: "1fr 1fr 1fr",
-    gridTemplateRows: "1fr 1fr 1fr 1fr",
+    gridTemplateRows: "1fr 1fr 1fr",
+    flexWrap: "wrap",
     gridRowGap: "10px",
     gridColumnGap: "10px",
     justifyItems: "stretch",
@@ -40,12 +40,9 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
     background: "#f1f1f1",
-    height: "100px",
-    width: "400px",
   },
 }));
 
-// We're going to store all state and data in here
 export const Calculator = () => {
   // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "-"];
