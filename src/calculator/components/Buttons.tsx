@@ -29,7 +29,7 @@ export const Buttons = ({
 }: Props) => {
   // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const ops = ["+", "-", "%", "*"];
+  const ops = ["+", "-", "/", "*"];
 
   // Functions
   const { add, subtract, divide, multiply } = handleOps;
@@ -73,7 +73,7 @@ export const Buttons = ({
       const newTotal = subtract(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
-    } else if (currentOperator === "%" && currentNum2 !== "") {
+    } else if (currentOperator === "/" && currentNum2 !== "") {
       const unstringed: number[] = [
         parseFloat(currentNum1),
         parseFloat(currentNum2),
