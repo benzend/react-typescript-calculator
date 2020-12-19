@@ -40,40 +40,48 @@ export const Calculator = () => {
   const [currentOperator, setCurrentOperator] = useState("");
   const classes = useStyles();
   const doshit = {
-    add(num1: number, num2: number) {
-      return num1 + num2;
+    add(arr: number[]) {
+      return arr[0] + arr[1];
     },
-    subtract(num1: number, num2: number) {
-      return num1 - num2;
+    subtract(arr: number[]) {
+      return arr[0] - arr[1];
     },
-    multiply(num1: number, num2: number) {
-      return num1 * num2;
+    divide(arr: number[]) {
+      return arr[0] / arr[1];
     },
-    divide(num1: number, num2: number) {
-      return num1 / num2;
+    multiply(arr: number[]) {
+      return arr[0] * arr[1];
     },
   };
 
   const equalsHandler = () => {
     if (currentOperator === "+" && currentNum2 !== null) {
-      const unstringed1: number = parseInt(currentNum1);
-      const unstringed2: number = parseInt(currentNum2);
-      const newTotal = doshit.add(unstringed1, unstringed2);
+      const unstringed: number[] = [
+        parseInt(currentNum1),
+        parseInt(currentNum2),
+      ];
+      const newTotal = doshit.add(unstringed);
       setTotal(newTotal);
     } else if (currentOperator === "-" && currentNum2 !== null) {
-      const unstringed1: number = parseInt(currentNum1);
-      const unstringed2: number = parseInt(currentNum2);
-      const newTotal = doshit.subtract(unstringed1, unstringed2);
+      const unstringed: number[] = [
+        parseInt(currentNum1),
+        parseInt(currentNum2),
+      ];
+      const newTotal = doshit.subtract(unstringed);
       setTotal(newTotal);
     } else if (currentOperator === "%" && currentNum2 !== null) {
-      const unstringed1: number = parseInt(currentNum1);
-      const unstringed2: number = parseInt(currentNum2);
-      const newTotal = doshit.divide(unstringed1, unstringed2);
+      const unstringed: number[] = [
+        parseInt(currentNum1),
+        parseInt(currentNum2),
+      ];
+      const newTotal = doshit.divide(unstringed);
       setTotal(newTotal);
     } else if (currentOperator === "*" && currentNum2 !== null) {
-      const unstringed1: number = parseInt(currentNum1);
-      const unstringed2: number = parseInt(currentNum2);
-      const newTotal = doshit.multiply(unstringed1, unstringed2);
+      const unstringed: number[] = [
+        parseInt(currentNum1),
+        parseInt(currentNum2),
+      ];
+      const newTotal = doshit.multiply(unstringed);
       setTotal(newTotal);
     }
   };
