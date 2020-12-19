@@ -36,7 +36,7 @@ export const Calculator = () => {
   const ops = ["+", "-", "%", "*", "clr"];
   const [currentNum1, setCurrentNum1] = useState<string>("");
   const [currentNum2, setCurrentNum2] = useState<string>("");
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
   const classes = useStyles();
   const doshit = {
@@ -61,6 +61,7 @@ export const Calculator = () => {
         parseInt(currentNum2),
       ];
       const newTotal = doshit.add(unstringed);
+      setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "-" && currentNum2 !== null) {
       const unstringed: number[] = [
@@ -68,6 +69,7 @@ export const Calculator = () => {
         parseInt(currentNum2),
       ];
       const newTotal = doshit.subtract(unstringed);
+      setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "%" && currentNum2 !== null) {
       const unstringed: number[] = [
@@ -75,6 +77,7 @@ export const Calculator = () => {
         parseInt(currentNum2),
       ];
       const newTotal = doshit.divide(unstringed);
+      setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "*" && currentNum2 !== null) {
       const unstringed: number[] = [
@@ -82,8 +85,11 @@ export const Calculator = () => {
         parseInt(currentNum2),
       ];
       const newTotal = doshit.multiply(unstringed);
+      setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     }
+    setCurrentNum2("");
+    setCurrentOperator("");
   };
 
   if (currentOperator === "clr") {
