@@ -1,6 +1,10 @@
+// React
 import { useState } from "react";
+
+// External Packages
 import { makeStyles, Box } from "@material-ui/core";
 
+// Components
 import { Display } from "./components/Display";
 import { Operator } from "./components/Operator";
 import { Number } from "./components/Number";
@@ -31,19 +35,33 @@ const useStyles = makeStyles(() => ({
     justifyItems: "space-around",
     alignItems: "center",
   },
+  displayStyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "#f1f1f1",
+    height: "100px",
+    width: "400px",
+  },
 }));
 
 // We're going to store all state and data in here
 export const Calculator = () => {
+  // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "-"];
   const ops = ["+", "-", "%", "*", "clr"];
+
+  //State
   const [currentNum1, setCurrentNum1] = useState<string>("");
   const [currentNum2, setCurrentNum2] = useState<string>("");
   const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
-  const { add, subtract, divide, multiply } = handleOps;
-  const classes = useStyles();
 
+  //Style
+  const { root, numbersStyle, operatorsStyle, displayStyle } = useStyles();
+
+  // Functions
+  const { add, subtract, divide, multiply } = handleOps;
   const equalsHandler = () => {
     if (currentOperator === "+" && currentNum2 !== "") {
       const unstringed: number[] = [
@@ -78,25 +96,32 @@ export const Calculator = () => {
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     }
+
     setCurrentNum2("");
     setCurrentOperator("");
   };
 
+  // Total Reset
   if (currentOperator === "clr") {
     setTotal(0);
     setCurrentNum1("");
     setCurrentNum2("");
     setCurrentOperator("");
   }
+
   return (
-    <Box className={classes.root}>
-      <Display
-        currentNum1={currentNum1}
-        currentNum2={currentNum2}
-        currentOperator={currentOperator}
-        total={total}
-      />
-      <Box className={classes.numbersStyle}>
+    <Box className={root}>
+      <Box className={displayStyle}>
+        {" "}
+        <Display
+          currentNum1={currentNum1}
+          currentNum2={currentNum2}
+          currentOperator={currentOperator}
+          total={total}
+        />
+      </Box>
+
+      <Box className={numbersStyle}>
         {nums.map((num: string) => (
           <Number
             setCurrentNum1={setCurrentNum1}
@@ -108,7 +133,7 @@ export const Calculator = () => {
           />
         ))}
       </Box>
-      <Box className={classes.operatorsStyle}>
+      <Box className={operatorsStyle}>
         {ops.map((op: string) => (
           <Operator setCurrentOperator={setCurrentOperator} op={op} />
         ))}
