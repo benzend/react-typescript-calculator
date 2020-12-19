@@ -14,11 +14,12 @@ import { Dot } from "./components/Dot";
 
 // Utils
 import { handleOps } from "../utils/utils";
+import { Clear } from "./components/Clear";
 
 export const Calculator = () => {
   // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const ops = ["+", "-", "%", "*", "clr"];
+  const ops = ["+", "-", "%", "*"];
 
   //State
   const [currentNum1, setCurrentNum1] = useState<string>("");
@@ -72,14 +73,12 @@ export const Calculator = () => {
     setCurrentNum2("");
     setCurrentOperator("");
   };
-
-  // Total Reset
-  if (currentOperator === "clr") {
+  const reset = () => {
     setTotal(0);
     setCurrentNum1("");
     setCurrentNum2("");
     setCurrentOperator("");
-  }
+  };
 
   return (
     <Box>
@@ -110,6 +109,7 @@ export const Calculator = () => {
           <Operator setCurrentOperator={setCurrentOperator} op={op} />
         ))}
       </Box>
+      <Clear reset={reset} />
       <NegativeInt />
       <Dot />
       <Equals equalsHandler={equalsHandler} />
