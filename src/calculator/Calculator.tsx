@@ -98,7 +98,6 @@ export const Calculator = () => {
   return (
     <Box>
       <Box>
-        {" "}
         <Display
           currentNum1={currentNum1}
           currentNum2={currentNum2}
@@ -106,7 +105,6 @@ export const Calculator = () => {
           total={total}
         />
       </Box>
-
       <Box>
         {nums.map((num: string) => (
           <Number
@@ -118,16 +116,18 @@ export const Calculator = () => {
             num={num}
           />
         ))}
+        <Dot addDot={addDot} />
       </Box>
       <Box>
         {ops.map((op: string) => (
           <Operator setCurrentOperator={setCurrentOperator} op={op} />
         ))}
+        <NegativeInt negativeHandler={negativeHandler} />
       </Box>
-      <Clear reset={reset} />
-      <NegativeInt negativeHandler={negativeHandler} />
-      <Dot addDot={addDot} />
-      <Equals equalsHandler={equalsHandler} />
+      <Box>
+        <Equals equalsHandler={equalsHandler} />
+        <Clear reset={reset} />
+      </Box>
     </Box>
   );
 };
