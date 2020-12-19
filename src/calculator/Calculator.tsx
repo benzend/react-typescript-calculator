@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { makeStyles, Box } from "@material-ui/core";
 
-import { Display } from "./display/Display";
-import { Operator } from "./operator/Operator";
-import { Number } from "./number/Number";
-import { Equals } from "./Equals";
+import { Display } from "./components/Display";
+import { Operator } from "./components/Operator";
+import { Number } from "./components/Number";
+import { Equals } from "./components/Equals";
 
 const useStyles = makeStyles(() => ({
   root: {
