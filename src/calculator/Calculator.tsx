@@ -6,6 +6,9 @@ import { Operator } from "./components/Operator";
 import { Number } from "./components/Number";
 import { Equals } from "./components/Equals";
 
+// Utils
+import { handleOps } from "../utils/utils";
+
 const useStyles = makeStyles(() => ({
   root: {
     height: "500px",
@@ -38,21 +41,8 @@ export const Calculator = () => {
   const [currentNum2, setCurrentNum2] = useState<string>("");
   const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
+  const { add, subtract, divide, multiply } = handleOps;
   const classes = useStyles();
-  const doshit = {
-    add(arr: number[]) {
-      return arr[0] + arr[1];
-    },
-    subtract(arr: number[]) {
-      return arr[0] - arr[1];
-    },
-    divide(arr: number[]) {
-      return arr[0] / arr[1];
-    },
-    multiply(arr: number[]) {
-      return arr[0] * arr[1];
-    },
-  };
 
   const equalsHandler = () => {
     if (currentOperator === "+" && currentNum2 !== "") {
@@ -60,7 +50,7 @@ export const Calculator = () => {
         parseFloat(currentNum1),
         parseFloat(currentNum2),
       ];
-      const newTotal = doshit.add(unstringed);
+      const newTotal = add(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "-" && currentNum2 !== "") {
@@ -68,7 +58,7 @@ export const Calculator = () => {
         parseFloat(currentNum1),
         parseFloat(currentNum2),
       ];
-      const newTotal = doshit.subtract(unstringed);
+      const newTotal = subtract(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "%" && currentNum2 !== "") {
@@ -76,7 +66,7 @@ export const Calculator = () => {
         parseFloat(currentNum1),
         parseFloat(currentNum2),
       ];
-      const newTotal = doshit.divide(unstringed);
+      const newTotal = divide(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "*" && currentNum2 !== "") {
@@ -84,7 +74,7 @@ export const Calculator = () => {
         parseFloat(currentNum1),
         parseFloat(currentNum2),
       ];
-      const newTotal = doshit.multiply(unstringed);
+      const newTotal = multiply(unstringed);
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     }
