@@ -33,11 +33,11 @@ const useStyles = makeStyles(() => ({
 // We're going to store all state and data in here
 export const Calculator = () => {
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const ops = ["+", "-", "%", "*"];
-  const [currentNum1, setCurrentNum1] = useState<any>("");
-  const [currentNum2, setCurrentNum2] = useState<any>("");
+  const ops = ["+", "-", "%", "*", "clr"];
+  const [currentNum1, setCurrentNum1] = useState<string>("");
+  const [currentNum2, setCurrentNum2] = useState<string>("");
   const [total, setTotal] = useState(0);
-  const [currentOperator, setCurrentOperator] = useState("");
+  const [currentOperator, setCurrentOperator] = useState<string>("");
   const classes = useStyles();
   const doshit = {
     add(arr: number[]) {
@@ -85,6 +85,13 @@ export const Calculator = () => {
       setTotal(newTotal);
     }
   };
+
+  if (currentOperator === "clr") {
+    setTotal(0);
+    setCurrentNum1("");
+    setCurrentNum2("");
+    setCurrentOperator("");
+  }
   return (
     <Box className={classes.root}>
       <Display
