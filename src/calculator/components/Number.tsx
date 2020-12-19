@@ -1,15 +1,4 @@
-import { makeStyles, Box } from "@material-ui/core";
-
-const useStyles = makeStyles(() => ({
-  root: {
-    height: "70px",
-    width: "70px",
-    background: "lightGreen",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
+import { Button } from "@material-ui/core";
 
 interface Props {
   num: string;
@@ -28,9 +17,8 @@ export const Number = ({
   setCurrentNum2,
   currentOperator,
 }: Props) => {
-  const classes = useStyles();
   return (
-    <Box
+    <Button
       onClick={() => {
         if (currentOperator === "") {
           setCurrentNum1(currentNum1 + num);
@@ -38,9 +26,8 @@ export const Number = ({
           setCurrentNum2(currentNum2 + num);
         }
       }}
-      className={classes.root}
     >
       {num}
-    </Box>
+    </Button>
   );
 };
