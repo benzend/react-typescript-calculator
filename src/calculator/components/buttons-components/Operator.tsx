@@ -1,7 +1,5 @@
 import { Button } from "@material-ui/core";
 
-import "./button.css";
-
 interface Props {
   op: string;
   opHandler: any;
