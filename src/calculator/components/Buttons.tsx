@@ -35,12 +35,12 @@ export const Buttons = ({
 }: Props) => {
   // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const ops = ["+", "-", "/", "*"];
+  const ops = ["+", "-", "/", "*", "^"];
 
   // Functions
 
   // add, sub, divide, mult takes in an array
-  const { add, subtract, divide, multiply } = handleOps;
+  const { add, subtract, divide, multiply, toThePowerOf } = handleOps;
   function totalOfTwoStrings(
     string1: string,
     string2: string,
@@ -56,6 +56,8 @@ export const Buttons = ({
       total = divide(numberified);
     } else if (operation === "*") {
       total = multiply(numberified);
+    } else if (operation === "^") {
+      total = toThePowerOf(numberified);
     } else {
       total = 0;
     }
@@ -99,6 +101,10 @@ export const Buttons = ({
       setTotal(newTotal);
     } else if (currentOperator === "*" && currentNum2 !== "") {
       const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "*");
+      setCurrentNum1(newTotal.toString());
+      setTotal(newTotal);
+    } else if (currentOperator === "^" && currentNum2 !== "") {
+      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "^");
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else {

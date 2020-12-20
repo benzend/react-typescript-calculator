@@ -12,7 +12,7 @@ export const NegativeInt = ({ negativeHandler }: Props) => {
       color="primary"
       onClick={negativeHandler}
     >
-      -
+      +/-
     </Button>
   );
 };

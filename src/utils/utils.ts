@@ -11,4 +11,7 @@ export const handleOps = {
   multiply(arr: number[]) {
     return arr[0] * arr[1];
   },
+  toThePowerOf(arr: number[]) {
+    return Math.pow(arr[0], arr[1]);
+  },
 };
