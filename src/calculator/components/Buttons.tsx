@@ -1,12 +1,18 @@
+// External Packages
 import { Box } from "@material-ui/core";
-import { handleOps } from "../../utils/utils";
 
-import { Clear } from "./buttons-components/Clear";
-import { Dot } from "./buttons-components/Dot";
-import { Equals } from "./buttons-components/Equals";
-import { NegativeInt } from "./buttons-components/NegativeInt";
-import { Operator } from "./buttons-components/Operator";
-import { Number } from "./buttons-components/Number";
+// Components
+import {
+  Clear,
+  Dot,
+  Equals,
+  NegativeInt,
+  Operator,
+  Number,
+} from "./buttons-components";
+
+// Utility
+import { handleOps } from "../../utils/utils";
 
 interface Props {
   currentNum1: string;
