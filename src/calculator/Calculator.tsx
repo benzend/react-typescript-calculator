@@ -8,6 +8,7 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
 
+// Styles
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -18,12 +19,13 @@ const useStyles = makeStyles({
 });
 
 export const Calculator = () => {
-  //State
+  // State
   const [currentNum1, setCurrentNum1] = useState<string>("");
   const [currentNum2, setCurrentNum2] = useState<string>("");
   const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
 
+  // Styles
   const { root } = useStyles();
 
   return (
