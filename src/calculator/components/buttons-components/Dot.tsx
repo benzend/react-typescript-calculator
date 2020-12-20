@@ -6,7 +6,7 @@ interface Props {
 
 export const Dot = ({ addDot }: Props) => {
   return (
-    <Button className="button" variant="contained" onClick={addDot}>
+    <Button variant="contained" onClick={addDot}>
       .
     </Button>
   );
