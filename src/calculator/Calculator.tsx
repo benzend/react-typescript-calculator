@@ -2,11 +2,20 @@
 import { useState } from "react";
 
 // External Packages
-import { Box } from "@material-ui/core";
+import { Box, Typography, makeStyles } from "@material-ui/core";
 
 // Components
 import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+});
 
 export const Calculator = () => {
   //State
@@ -15,8 +24,11 @@ export const Calculator = () => {
   const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
 
+  const { root } = useStyles();
+
   return (
-    <Box>
+    <Box className={root}>
+      <Typography variant="h1">React Calculator</Typography>
       <Box>
         <Display
           currentNum1={currentNum1}
