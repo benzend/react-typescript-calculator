@@ -115,6 +115,7 @@ export const Buttons = ({
       <Box>
         {nums.map((num: string) => (
           <Number
+            key={"button" + num}
             setCurrentNum1={setCurrentNum1}
             setCurrentNum2={setCurrentNum2}
             currentOperator={currentOperator}
@@ -127,7 +128,7 @@ export const Buttons = ({
       </Box>
       <Box>
         {ops.map((op: string) => (
-          <Operator opHandler={opHandler} op={op} />
+          <Operator key={op} opHandler={opHandler} op={op} />
         ))}
         <NegativeInt negativeHandler={negativeHandler} />
       </Box>
