@@ -6,12 +6,7 @@ interface Props {
 
 export const Clear = ({ reset }: Props) => {
   return (
-    <Button
-      className="button"
-      variant="contained"
-      color="primary"
-      onClick={reset}
-    >
+    <Button variant="contained" color="primary" onClick={reset}>
       CLR
     </Button>
   );

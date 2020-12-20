@@ -6,12 +6,7 @@ interface Props {
 
 export const Equals = ({ equalsHandler }: Props) => {
   return (
-    <Button
-      className="button"
-      variant="contained"
-      color="primary"
-      onClick={equalsHandler}
-    >
+    <Button variant="contained" color="primary" onClick={equalsHandler}>
       =
     </Button>
   );

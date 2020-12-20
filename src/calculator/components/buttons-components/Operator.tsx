@@ -7,12 +7,7 @@ interface Props {
 
 export const Operator = ({ op, opHandler }: Props) => {
   return (
-    <Button
-      className="button"
-      variant="contained"
-      color="primary"
-      onClick={() => opHandler(op)}
-    >
+    <Button variant="contained" color="primary" onClick={() => opHandler(op)}>
       {op}
     </Button>
   );
