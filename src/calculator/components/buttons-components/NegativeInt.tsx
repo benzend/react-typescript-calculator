@@ -5,5 +5,14 @@ interface Props {
 }
 
 export const NegativeInt = ({ negativeHandler }: Props) => {
-  return <Button onClick={negativeHandler}>-</Button>;
+  return (
+    <Button
+      className="button"
+      variant="contained"
+      color="primary"
+      onClick={negativeHandler}
+    >
+      -
+    </Button>
+  );
 };

@@ -5,5 +5,14 @@ interface Props {
 }
 
 export const Equals = ({ equalsHandler }: Props) => {
-  return <Button onClick={equalsHandler}>=</Button>;
+  return (
+    <Button
+      className="button"
+      variant="contained"
+      color="primary"
+      onClick={equalsHandler}
+    >
+      =
+    </Button>
+  );
 };

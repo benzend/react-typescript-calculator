@@ -9,6 +9,8 @@ import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
 
 // Styles
+import "./utils.css";
+
 const useStyles = makeStyles({
   root: {
     display: "flex",

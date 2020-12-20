@@ -19,6 +19,8 @@ export const Number = ({
 }: Props) => {
   return (
     <Button
+      className="button"
+      variant="contained"
       onClick={() => {
         if (currentOperator === "") {
           setCurrentNum1(currentNum1 + num);
