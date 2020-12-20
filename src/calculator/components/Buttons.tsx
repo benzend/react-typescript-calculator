@@ -39,7 +39,7 @@ export const Buttons = ({
 
   // Functions
 
-  // add, sub, divide, mult take in an array
+  // add, sub, divide, mult takes in an array
   const { add, subtract, divide, multiply } = handleOps;
   function totalOfTwoStrings(
     string1: string,
