@@ -38,7 +38,29 @@ export const Buttons = ({
   const ops = ["+", "-", "/", "*"];
 
   // Functions
+
+  // add, sub, divide, mult take in an array
   const { add, subtract, divide, multiply } = handleOps;
+  function totalOfTwoStrings(
+    string1: string,
+    string2: string,
+    operation: string
+  ) {
+    const numberified: number[] = [parseFloat(string1), parseFloat(string2)];
+    let total: number;
+    if (operation === "+") {
+      total = add(numberified);
+    } else if (operation === "-") {
+      total = subtract(numberified);
+    } else if (operation === "/") {
+      total = divide(numberified);
+    } else if (operation === "*") {
+      total = multiply(numberified);
+    } else {
+      total = 0;
+    }
+    return total;
+  }
   const reset = () => {
     setTotal(0);
     setCurrentNum1("");
@@ -64,35 +86,19 @@ export const Buttons = ({
   };
   const equalsHandler = () => {
     if (currentOperator === "+" && currentNum2 !== "") {
-      const unstringed: number[] = [
-        parseFloat(currentNum1),
-        parseFloat(currentNum2),
-      ];
-      const newTotal = add(unstringed);
+      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "+");
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "-" && currentNum2 !== "") {
-      const unstringed: number[] = [
-        parseFloat(currentNum1),
-        parseFloat(currentNum2),
-      ];
-      const newTotal = subtract(unstringed);
+      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "-");
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "/" && currentNum2 !== "") {
-      const unstringed: number[] = [
-        parseFloat(currentNum1),
-        parseFloat(currentNum2),
-      ];
-      const newTotal = divide(unstringed);
+      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "/");
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else if (currentOperator === "*" && currentNum2 !== "") {
-      const unstringed: number[] = [
-        parseFloat(currentNum1),
-        parseFloat(currentNum2),
-      ];
-      const newTotal = multiply(unstringed);
+      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "*");
       setCurrentNum1(newTotal.toString());
       setTotal(newTotal);
     } else {
