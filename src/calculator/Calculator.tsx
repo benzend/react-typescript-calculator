@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // External Packages
-import { Box, Typography, makeStyles } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 // Components
 import { Display } from "./components/Display";

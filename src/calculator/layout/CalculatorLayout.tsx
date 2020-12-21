@@ -4,7 +4,6 @@ export interface ChildrenOnlyProps {
   children: any;
 }
 
-// Styles
 const useStyles = makeStyles({
   root: {
     display: "flex",

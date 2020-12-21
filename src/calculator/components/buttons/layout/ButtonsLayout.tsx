@@ -1,10 +1,7 @@
 import { Box } from "@material-ui/core";
+import { ChildrenOnlyProps } from "../../../layout/CalculatorLayout";
 
-interface Props {
-  children: any;
-}
-
-export const ButtonsLayout = ({ children }: Props) => {
+export const ButtonsLayout = ({ children }: ChildrenOnlyProps) => {
   return (
     <Box maxWidth="250px" display="flex" flexDirection="column">
       {children}

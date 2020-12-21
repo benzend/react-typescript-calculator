@@ -1,6 +1,3 @@
-// External Packages
-import { Box } from "@material-ui/core";
-
 // Components
 import {
   Clear,
@@ -10,6 +7,9 @@ import {
   Operator,
   Number,
 } from "./buttons/components";
+
+// Styles/Layouts
+import { ButtonSectionLayout } from "./buttons/layout/ButtonSectionLayout";
 import { ButtonsLayout } from "./buttons/layout/ButtonsLayout";
 
 interface Props {
@@ -79,7 +79,7 @@ export const Buttons = ({
 
   return (
     <ButtonsLayout>
-      <Box>
+      <ButtonSectionLayout>
         {nums.map((num: string) => (
           <Number
             key={"button" + num}
@@ -92,17 +92,17 @@ export const Buttons = ({
           />
         ))}
         <Dot addDot={addDot} />
-      </Box>
-      <Box>
+      </ButtonSectionLayout>
+      <ButtonSectionLayout>
         {ops.map((op: string) => (
           <Operator key={op} opHandler={opHandler} op={op} />
         ))}
         <NegativeInt negativeHandler={negativeHandler} />
-      </Box>
-      <Box>
+      </ButtonSectionLayout>
+      <ButtonSectionLayout>
         <Equals equalsHandler={equalsHandler} />
         <Clear reset={reset} />
-      </Box>
+      </ButtonSectionLayout>
     </ButtonsLayout>
   );
 };
