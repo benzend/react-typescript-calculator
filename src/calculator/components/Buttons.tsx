@@ -11,9 +11,6 @@ import {
   Number,
 } from "./buttons-components";
 
-// Utility
-import { handleOps } from "../../utils/utils";
-
 interface Props {
   currentNum1: string;
   currentNum2: string;
@@ -22,6 +19,7 @@ interface Props {
   currentOperator: string;
   setCurrentOperator: Function;
   setTotal: Function;
+  totalOfTwoStrings: Function;
 }
 
 export const Buttons = ({
@@ -32,37 +30,13 @@ export const Buttons = ({
   currentOperator,
   currentNum1,
   currentNum2,
+  totalOfTwoStrings,
 }: Props) => {
   // Data
   const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const ops = ["+", "-", "/", "*", "^"];
 
   // Functions
-
-  // add, sub, divide, mult takes in an array
-  const { add, subtract, divide, multiply, toThePowerOf } = handleOps;
-  function totalOfTwoStrings(
-    string1: string,
-    string2: string,
-    operation: string
-  ) {
-    const numberified: number[] = [parseFloat(string1), parseFloat(string2)];
-    let total: number;
-    if (operation === "+") {
-      total = add(numberified);
-    } else if (operation === "-") {
-      total = subtract(numberified);
-    } else if (operation === "/") {
-      total = divide(numberified);
-    } else if (operation === "*") {
-      total = multiply(numberified);
-    } else if (operation === "^") {
-      total = toThePowerOf(numberified);
-    } else {
-      total = 0;
-    }
-    return total;
-  }
   const reset = () => {
     setTotal(0);
     setCurrentNum1("");

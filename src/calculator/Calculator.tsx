@@ -8,6 +8,9 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
 
+// Utility
+import { handleOps } from "../utils/utils";
+
 // Styles
 const useStyles = makeStyles({
   root: {
@@ -24,6 +27,31 @@ export const Calculator = () => {
   const [currentNum2, setCurrentNum2] = useState<string>("");
   const [total, setTotal] = useState<number>(0);
   const [currentOperator, setCurrentOperator] = useState<string>("");
+
+  // Functions
+  const { add, subtract, divide, multiply, toThePowerOf } = handleOps;
+  function totalOfTwoStrings(
+    string1: string,
+    string2: string,
+    operation: string
+  ) {
+    const numberified: number[] = [parseFloat(string1), parseFloat(string2)];
+    let total: number;
+    if (operation === "+") {
+      total = add(numberified);
+    } else if (operation === "-") {
+      total = subtract(numberified);
+    } else if (operation === "/") {
+      total = divide(numberified);
+    } else if (operation === "*") {
+      total = multiply(numberified);
+    } else if (operation === "^") {
+      total = toThePowerOf(numberified);
+    } else {
+      total = 0;
+    }
+    return total;
+  }
 
   // Styles
   const { root } = useStyles();
@@ -47,6 +75,7 @@ export const Calculator = () => {
         currentOperator={currentOperator}
         currentNum1={currentNum1}
         currentNum2={currentNum2}
+        totalOfTwoStrings={totalOfTwoStrings}
       />
     </Box>
   );
