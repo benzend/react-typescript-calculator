@@ -61,30 +61,16 @@ export const Buttons = ({
     }
   };
   const equalsHandler = () => {
-    if (currentOperator === "+" && currentNum2 !== "") {
-      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "+");
-      setCurrentNum1(newTotal.toString());
-      setTotal(newTotal);
-    } else if (currentOperator === "-" && currentNum2 !== "") {
-      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "-");
-      setCurrentNum1(newTotal.toString());
-      setTotal(newTotal);
-    } else if (currentOperator === "/" && currentNum2 !== "") {
-      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "/");
-      setCurrentNum1(newTotal.toString());
-      setTotal(newTotal);
-    } else if (currentOperator === "*" && currentNum2 !== "") {
-      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "*");
-      setCurrentNum1(newTotal.toString());
-      setTotal(newTotal);
-    } else if (currentOperator === "^" && currentNum2 !== "") {
-      const newTotal = totalOfTwoStrings(currentNum1, currentNum2, "^");
-      setCurrentNum1(newTotal.toString());
-      setTotal(newTotal);
+    if (currentNum2 !== "") {
+      ops.forEach((op) => {
+        if (currentOperator === op) {
+          const newTotal = totalOfTwoStrings(currentNum1, currentNum2, op);
+          setCurrentNum1(newTotal.toString());
+          setTotal(newTotal);
+        }
+      });
     } else {
-      alert(
-        "You have to have at least two number to do anything. Try using '+' and typing in a number afterwards"
-      );
+      alert('Try using the "+" operator and inputting a second number!');
     }
     setCurrentNum2("");
     setCurrentOperator("");
