@@ -1,4 +1,5 @@
 import { Button } from "@material-ui/core";
+import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
   num: string;
@@ -18,17 +19,19 @@ export const Number = ({
   currentOperator,
 }: Props) => {
   return (
-    <Button
-      variant="contained"
-      onClick={() => {
-        if (currentOperator === "") {
-          setCurrentNum1(currentNum1 + num);
-        } else {
-          setCurrentNum2(currentNum2 + num);
-        }
-      }}
-    >
-      {num}
-    </Button>
+    <ButtonLayout>
+      <Button
+        variant="contained"
+        onClick={() => {
+          if (currentOperator === "") {
+            setCurrentNum1(currentNum1 + num);
+          } else {
+            setCurrentNum2(currentNum2 + num);
+          }
+        }}
+      >
+        {num}
+      </Button>
+    </ButtonLayout>
   );
 };

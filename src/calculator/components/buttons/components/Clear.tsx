@@ -1,4 +1,5 @@
 import { Button } from "@material-ui/core";
+import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
   reset: any;
@@ -6,13 +7,15 @@ interface Props {
 
 export const Clear = ({ reset }: Props) => {
   return (
-    <Button
-      className="button"
-      variant="contained"
-      color="primary"
-      onClick={reset}
-    >
-      CLR
-    </Button>
+    <ButtonLayout>
+      <Button
+        className="button"
+        variant="contained"
+        color="primary"
+        onClick={reset}
+      >
+        CLR
+      </Button>
+    </ButtonLayout>
   );
 };

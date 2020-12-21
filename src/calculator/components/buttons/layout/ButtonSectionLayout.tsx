@@ -8,6 +8,7 @@ export const ButtonSectionLayout = ({ children }: ChildrenOnlyProps) => {
       flexWrap="wrap"
       justifyContent="flex-start"
       alignItems="center"
+      margin="4px 0"
     >
       {children}
     </Box>

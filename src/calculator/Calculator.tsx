@@ -2,12 +2,15 @@
 import { useState } from "react";
 
 // External Packages
-import { Box, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 // Components
 import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
+
+// Styles
 import { CalculatorLayout } from "./layout/CalculatorLayout";
+import { CalcSectionLayout } from "./layout/CalcSectionLayout";
 
 // Utility
 import { handleOps } from "../utils/utils";
@@ -46,15 +49,17 @@ export const Calculator = () => {
 
   return (
     <CalculatorLayout>
-      <Typography variant="h1">React Calculator</Typography>
-      <Box>
+      <Typography variant="h2" component="h1">
+        React Calculator
+      </Typography>
+      <CalcSectionLayout>
         <Display
           currentNum1={currentNum1}
           currentNum2={currentNum2}
           currentOperator={currentOperator}
           total={total}
         />
-      </Box>
+      </CalcSectionLayout>
       <Buttons
         setTotal={setTotal}
         setCurrentNum1={setCurrentNum1}

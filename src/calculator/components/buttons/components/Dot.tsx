@@ -1,4 +1,5 @@
 import { Button } from "@material-ui/core";
+import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
   addDot: any;
@@ -6,8 +7,10 @@ interface Props {
 
 export const Dot = ({ addDot }: Props) => {
   return (
-    <Button variant="contained" onClick={addDot}>
-      .
-    </Button>
+    <ButtonLayout>
+      <Button variant="contained" onClick={addDot}>
+        .
+      </Button>
+    </ButtonLayout>
   );
 };

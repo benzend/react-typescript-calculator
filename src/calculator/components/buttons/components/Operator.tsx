@@ -1,4 +1,5 @@
 import { Button } from "@material-ui/core";
+import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
   op: string;
@@ -7,8 +8,10 @@ interface Props {
 
 export const Operator = ({ op, opHandler }: Props) => {
   return (
-    <Button variant="contained" color="primary" onClick={() => opHandler(op)}>
-      {op}
-    </Button>
+    <ButtonLayout>
+      <Button variant="contained" color="primary" onClick={() => opHandler(op)}>
+        {op}
+      </Button>
+    </ButtonLayout>
   );
 };

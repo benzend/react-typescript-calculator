@@ -3,7 +3,7 @@ import { ChildrenOnlyProps } from "../../../layout/CalculatorLayout";
 
 export const ButtonsLayout = ({ children }: ChildrenOnlyProps) => {
   return (
-    <Box maxWidth="250px" display="flex" flexDirection="column">
+    <Box maxWidth="210px" margin="4px 0" display="flex" flexDirection="column">
       {children}
     </Box>
   );
