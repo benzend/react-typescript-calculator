@@ -7,19 +7,10 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 // Components
 import { Display } from "./components/Display";
 import { Buttons } from "./components/Buttons";
+import { CalculatorLayout } from "./layout/CalculatorLayout";
 
 // Utility
 import { handleOps } from "../utils/utils";
-
-// Styles
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-});
 
 export const Calculator = () => {
   // State
@@ -53,11 +44,8 @@ export const Calculator = () => {
     return total;
   }
 
-  // Styles
-  const { root } = useStyles();
-
   return (
-    <Box className={root}>
+    <CalculatorLayout>
       <Typography variant="h1">React Calculator</Typography>
       <Box>
         <Display
@@ -77,6 +65,6 @@ export const Calculator = () => {
         currentNum2={currentNum2}
         totalOfTwoStrings={totalOfTwoStrings}
       />
-    </Box>
+    </CalculatorLayout>
   );
 };
