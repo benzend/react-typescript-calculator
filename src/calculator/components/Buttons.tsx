@@ -1,5 +1,5 @@
 // External Packages
-import { Box } from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 
 // Components
 import {
@@ -9,7 +9,7 @@ import {
   NegativeInt,
   Operator,
   Number,
-} from "./buttons-components";
+} from "./buttons/components";
 
 interface Props {
   currentNum1: string;
@@ -91,7 +91,7 @@ export const Buttons = ({
   };
 
   return (
-    <>
+    <Container>
       <Box>
         {nums.map((num: string) => (
           <Number
@@ -116,6 +116,6 @@ export const Buttons = ({
         <Equals equalsHandler={equalsHandler} />
         <Clear reset={reset} />
       </Box>
-    </>
+    </Container>
   );
 };
