@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
-  reset: any;
+  reset: () => void;
 }
 
 export const Clear = ({ reset }: Props) => {

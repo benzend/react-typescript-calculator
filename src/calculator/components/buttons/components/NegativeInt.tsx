@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { ButtonLayout } from "../layout/ButtonLayout";
 
 interface Props {
-  negativeHandler: any;
+  negativeHandler: () => void;
 }
 
 export const NegativeInt = ({ negativeHandler }: Props) => {
