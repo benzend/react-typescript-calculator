@@ -1,12 +1,16 @@
+import { Button, Grid } from "@material-ui/core";
+
 interface Props {
   operation: string;
 }
 
 const Operation = ({ operation }: Props) => {
   return (
-    <div>
-      <div className="button">{operation}</div>
-    </div>
+    <Grid item>
+      <Button color="primary" variant="contained">
+        {operation}
+      </Button>
+    </Grid>
   );
 };
 
