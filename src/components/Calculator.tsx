@@ -27,15 +27,20 @@ const Calculator = () => {
     "9",
   ];
 
-  const [currentOperation, setCurrentOperation] = useState([]);
+  const [currentOperations, setCurrentOperations] = useState(["", "", ""]);
 
   return (
     <div>
-      <h1>this is a calculator</h1>
-      <Display currentDisplay={currentOperation} />
+      <h1>React Calculator</h1>
+      <Display currentDisplay={currentOperations} />
       <Grid container>
         {operations.map((operation) => (
-          <Operation key={operation} operation={operation} />
+          <Operation
+            key={operation}
+            operation={operation}
+            currentOperations={currentOperations}
+            setCurrentOperations={setCurrentOperations}
+          />
         ))}
       </Grid>
     </div>
