@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Grid } from "@material-ui/core";
-import numeral from "numeral";
 
 import Operation from "./Operation";
 import Display from "./Display";

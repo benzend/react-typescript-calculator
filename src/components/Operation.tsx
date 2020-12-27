@@ -26,6 +26,21 @@ const Operation = ({
       }
       console.log("this is a number");
     } else if (operation === "=") {
+      const numeralOne = numeral(currentOperations[0]);
+      const numeralTwo = numeral(currentOperations[2]);
+      const firstNum = parseFloat(currentOperations[0]);
+      const secondNum = parseFloat(currentOperations[2]);
+      if (currentOperations[1] === "+") {
+        const total = numeralOne.add(numeralTwo);
+      } else if (currentOperations[1] === "-") {
+        const total = numeralOne.subtract(numeralTwo);
+      } else if (currentOperations[1] === "/") {
+        const total = numeralOne.divide(numeralTwo);
+      } else if (currentOperations[1] === "*") {
+        const total = numeralOne.multiply(numeralTwo);
+      } else if (currentOperations[1] === "^") {
+        const total = Math.pow(firstNum, secondNum);
+      }
       console.log("this is =");
     } else if (operation === "+") {
       const ops = [...currentOperations];
@@ -67,6 +82,7 @@ const Operation = ({
       }
       console.log("this is .");
     } else if (operation === "CLR") {
+      setCurrentOperations(["", "", ""]);
       console.log("this is CLR");
     }
   };
