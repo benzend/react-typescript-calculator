@@ -1,5 +1,9 @@
+import { useState } from "react";
+import { Grid } from "@material-ui/core";
 import numeral from "numeral";
+
 import Operation from "./Operation";
+import Display from "./Display";
 
 const Calculator = () => {
   const operations = [
@@ -23,12 +27,17 @@ const Calculator = () => {
     "9",
   ];
 
+  const [currentOperation, setCurrentOperation] = useState([]);
+
   return (
     <div>
       <h1>this is a calculator</h1>
-      {operations.map((operation) => (
-        <Operation operation={operation} />
-      ))}
+      <Display currentDisplay={currentOperation} />
+      <Grid container>
+        {operations.map((operation) => (
+          <Operation key={operation} operation={operation} />
+        ))}
+      </Grid>
     </div>
   );
 };
