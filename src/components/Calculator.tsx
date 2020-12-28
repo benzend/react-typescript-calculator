@@ -28,10 +28,12 @@ const Calculator = () => {
 
   const [currentOperations, setCurrentOperations] = useState(["", "", ""]);
 
+  const [totalHistory, setTotalHistory] = useState([]);
+
   return (
     <div>
       <h1>React Calculator</h1>
-      <Display currentDisplay={currentOperations} />
+      <Display currentDisplay={currentOperations} totalHistory={totalHistory} />
       <Grid container>
         {operations.map((operation) => (
           <Operation
@@ -39,6 +41,7 @@ const Calculator = () => {
             operation={operation}
             currentOperations={currentOperations}
             setCurrentOperations={setCurrentOperations}
+            setTotalHistory={setTotalHistory}
           />
         ))}
       </Grid>

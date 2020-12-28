@@ -5,12 +5,14 @@ interface Props {
   operation: string;
   currentOperations: string[];
   setCurrentOperations: Function;
+  setTotalHistory: Function;
 }
 
 const Operation = ({
   operation,
   currentOperations,
   setCurrentOperations,
+  setTotalHistory,
 }: Props) => {
   const clickHandler = () => {
     const parsedOp = parseFloat(operation);
@@ -26,20 +28,35 @@ const Operation = ({
       }
       console.log("this is a number");
     } else if (operation === "=") {
-      const numeralOne = numeral(currentOperations[0]);
-      const numeralTwo = numeral(currentOperations[2]);
-      const firstNum = parseFloat(currentOperations[0]);
-      const secondNum = parseFloat(currentOperations[2]);
+      const firstNum: number = parseFloat(currentOperations[0]);
+      const secondNum: number = parseFloat(currentOperations[2]);
+      const numeralOne = numeral(firstNum);
+      const numeralTwo = numeral(secondNum);
       if (currentOperations[1] === "+") {
-        const total = numeralOne.add(numeralTwo);
+        const total = numeralOne.add(secondNum).value();
+        const stringedTotal: string = total.toString();
+        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
+        setCurrentOperations([stringedTotal, "", ""]);
       } else if (currentOperations[1] === "-") {
-        const total = numeralOne.subtract(numeralTwo);
+        const total = numeralOne.subtract(secondNum).value();
+        const stringedTotal: string = total.toString();
+        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
+        setCurrentOperations([stringedTotal, "", ""]);
       } else if (currentOperations[1] === "/") {
-        const total = numeralOne.divide(numeralTwo);
+        const total = numeralOne.divide(secondNum).value();
+        const stringedTotal: string = total.toString();
+        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
+        setCurrentOperations([stringedTotal, "", ""]);
       } else if (currentOperations[1] === "*") {
-        const total = numeralOne.multiply(numeralTwo);
+        const total = numeralOne.multiply(secondNum).value();
+        const stringedTotal: string = total.toString();
+        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
+        setCurrentOperations([stringedTotal, "", ""]);
       } else if (currentOperations[1] === "^") {
         const total = Math.pow(firstNum, secondNum);
+        const stringedTotal: string = total.toString();
+        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
+        setCurrentOperations([stringedTotal, "", ""]);
       }
       console.log("this is =");
     } else if (operation === "+") {
