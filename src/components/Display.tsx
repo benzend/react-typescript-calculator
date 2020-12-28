@@ -18,8 +18,10 @@ const Display = ({ currentDisplay, totalHistory, currentTotal }: Props) => {
           {currentDisplay}
         </Typography>
       </CurrentDisplayLayout>
-      <CurrentTotalLayout>
-        <h2>{currentTotal}</h2>
+      <CurrentTotalLayout currentTotal={currentTotal}>
+        <Typography variant="h6" color="textPrimary">
+          {currentTotal}
+        </Typography>
       </CurrentTotalLayout>
       <TotalHistoryLayout>
         <h3>{totalHistory}</h3>
