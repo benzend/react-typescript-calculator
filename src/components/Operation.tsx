@@ -6,6 +6,8 @@ interface Props {
   currentOperations: string[];
   setCurrentOperations: Function;
   setTotalHistory: Function;
+  currentTotal: string;
+  setCurrentTotal: Function;
 }
 
 const Operation = ({
@@ -13,6 +15,8 @@ const Operation = ({
   currentOperations,
   setCurrentOperations,
   setTotalHistory,
+  currentTotal,
+  setCurrentTotal,
 }: Props) => {
   const clickHandler = () => {
     const parsedOp = parseFloat(operation);
@@ -26,12 +30,10 @@ const Operation = ({
         ops[2] += operation;
         setCurrentOperations(ops);
       }
-      console.log("this is a number");
     } else if (operation === "=") {
       const firstNum: number = parseFloat(currentOperations[0]);
       const secondNum: number = parseFloat(currentOperations[2]);
       const numeralOne = numeral(firstNum);
-      const numeralTwo = numeral(secondNum);
       if (currentOperations[1] === "+") {
         const total = numeralOne.add(secondNum).value();
         const stringedTotal: string = total.toString();
@@ -58,32 +60,26 @@ const Operation = ({
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
       }
-      console.log("this is =");
     } else if (operation === "+") {
       const ops = [...currentOperations];
       ops[1] += operation;
       setCurrentOperations(ops);
-      console.log("this is +");
     } else if (operation === "-") {
       const ops = [...currentOperations];
       ops[1] += operation;
       setCurrentOperations(ops);
-      console.log("this is -");
     } else if (operation === "/") {
       const ops = [...currentOperations];
       ops[1] += operation;
       setCurrentOperations(ops);
-      console.log("this is /");
     } else if (operation === "*") {
       const ops = [...currentOperations];
       ops[1] += operation;
       setCurrentOperations(ops);
-      console.log("this is *");
     } else if (operation === "^") {
       const ops = [...currentOperations];
       ops[1] += operation;
       setCurrentOperations(ops);
-      console.log("this is ^");
     } else if (operation === ".") {
       if (currentOperations[1] === "" && !currentOperations[0].includes(".")) {
         const ops = [...currentOperations];
@@ -97,10 +93,8 @@ const Operation = ({
         ops[2] += operation;
         setCurrentOperations(ops);
       }
-      console.log("this is .");
     } else if (operation === "CLR") {
       setCurrentOperations(["", "", ""]);
-      console.log("this is CLR");
     }
   };
   return (

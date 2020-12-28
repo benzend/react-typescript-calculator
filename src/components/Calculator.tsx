@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
+import numeral from "numeral";
 
 import Operation from "./Operation";
 import Display from "./Display";
@@ -27,13 +28,38 @@ const Calculator = () => {
   ];
 
   const [currentOperations, setCurrentOperations] = useState(["", "", ""]);
-
   const [totalHistory, setTotalHistory] = useState([]);
+  const [currentTotal, setCurrentTotal] = useState("");
+
+  useEffect(() => {
+    const numberOne = numeral(currentOperations[0]);
+    const op = currentOperations[1];
+    const numberTwo = parseFloat(currentOperations[2]);
+    if (!isNaN(numberTwo)) {
+      if (op === "+") {
+        const total = numberOne.add(numberTwo).value().toString();
+        setCurrentTotal(total);
+      } else if (op === "-") {
+        const total = numberOne.subtract(numberTwo).value().toString();
+        setCurrentTotal(total);
+      } else if (op === "*") {
+        const total = numberOne.multiply(numberTwo).value().toString();
+        setCurrentTotal(total);
+      } else if (op === "/") {
+        const total = numberOne.divide(numberTwo).value().toString();
+        setCurrentTotal(total);
+      }
+    }
+  }, [currentOperations]);
 
   return (
     <div>
       <h1>React Calculator</h1>
-      <Display currentDisplay={currentOperations} totalHistory={totalHistory} />
+      <Display
+        currentDisplay={currentOperations}
+        totalHistory={totalHistory}
+        currentTotal={currentTotal}
+      />
       <Grid container>
         {operations.map((operation) => (
           <Operation
@@ -42,6 +68,8 @@ const Calculator = () => {
             currentOperations={currentOperations}
             setCurrentOperations={setCurrentOperations}
             setTotalHistory={setTotalHistory}
+            currentTotal={currentTotal}
+            setCurrentTotal={setCurrentTotal}
           />
         ))}
       </Grid>
