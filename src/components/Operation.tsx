@@ -51,7 +51,24 @@ const Operation = ({
         setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       }
-    } else if (currentOperations[0] !== "" && currentOperations[1] === "") {
+    } else if (operation === ".") {
+      if (currentOperations[1] === "" && !currentOperations[0].includes(".")) {
+        const ops = [...currentOperations];
+        ops[0] += operation;
+        setCurrentOperations(ops);
+      } else if (
+        currentOperations[1] !== "" &&
+        !currentOperations[2].includes(".")
+      ) {
+        const ops = [...currentOperations];
+        ops[2] += operation;
+        setCurrentOperations(ops);
+      }
+    } else if (operation === "CLR") {
+      setCurrentOperations(["", "", ""]);
+      setCurrentTotal("");
+    }
+    if (currentOperations[0] !== "" && currentOperations[1] === "") {
       if (operation === "+") {
         const ops = [...currentOperations];
         ops[1] += operation;
@@ -73,22 +90,6 @@ const Operation = ({
         ops[1] += operation;
         setCurrentOperations(ops);
       }
-    } else if (operation === ".") {
-      if (currentOperations[1] === "" && !currentOperations[0].includes(".")) {
-        const ops = [...currentOperations];
-        ops[0] += operation;
-        setCurrentOperations(ops);
-      } else if (
-        currentOperations[1] !== "" &&
-        !currentOperations[2].includes(".")
-      ) {
-        const ops = [...currentOperations];
-        ops[2] += operation;
-        setCurrentOperations(ops);
-      }
-    } else if (operation === "CLR") {
-      setCurrentOperations(["", "", ""]);
-      setCurrentTotal("");
     }
   };
   return (
