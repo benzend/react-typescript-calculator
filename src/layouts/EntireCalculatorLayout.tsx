@@ -1,4 +1,4 @@
-import { Box, makeStyles } from "@material-ui/core";
+import { Card, Box, makeStyles } from "@material-ui/core";
 
 interface Props {
   children: React.AllHTMLAttributes<any>;
@@ -6,16 +6,28 @@ interface Props {
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "210px",
-    height: "500px",
     position: "absolute",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px",
+    background: "#f4f4f4",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
+    borderRadius: "10px",
+    boxShadow: "3px 3px 10px #0005",
+  },
+  inner: {
+    width: "210px",
   },
 }));
 
 export const EntireCalculatorLayout = ({ children }: Props) => {
-  const { root } = useStyles();
-  return <Box className={root}>{children}</Box>;
+  const { root, inner } = useStyles();
+  return (
+    <Card className={root}>
+      <Box className={inner}>{children}</Box>
+    </Card>
+  );
 };
