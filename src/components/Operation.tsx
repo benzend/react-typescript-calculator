@@ -39,26 +39,31 @@ const Operation = ({
         const stringedTotal: string = total.toString();
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
+        setCurrentTotal("");
       } else if (currentOperations[1] === "-") {
         const total = numeralOne.subtract(secondNum).value();
         const stringedTotal: string = total.toString();
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
+        setCurrentTotal("");
       } else if (currentOperations[1] === "/") {
         const total = numeralOne.divide(secondNum).value();
         const stringedTotal: string = total.toString();
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
+        setCurrentTotal("");
       } else if (currentOperations[1] === "*") {
         const total = numeralOne.multiply(secondNum).value();
         const stringedTotal: string = total.toString();
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
+        setCurrentTotal("");
       } else if (currentOperations[1] === "^") {
         const total = Math.pow(firstNum, secondNum);
         const stringedTotal: string = total.toString();
         setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
         setCurrentOperations([stringedTotal, "", ""]);
+        setCurrentTotal("");
       }
     } else if (operation === "+") {
       const ops = [...currentOperations];

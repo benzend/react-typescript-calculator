@@ -34,19 +34,23 @@ const Calculator = () => {
   useEffect(() => {
     const numberOne = numeral(currentOperations[0]);
     const op = currentOperations[1];
-    const numberTwo = parseFloat(currentOperations[2]);
-    if (!isNaN(numberTwo)) {
+    const nakedNumberOne = parseFloat(currentOperations[0]);
+    const nakedNumberTwo = parseFloat(currentOperations[2]);
+    if (!isNaN(nakedNumberTwo)) {
       if (op === "+") {
-        const total = numberOne.add(numberTwo).value().toString();
+        const total = numberOne.add(nakedNumberTwo).value().toString();
         setCurrentTotal(total);
       } else if (op === "-") {
-        const total = numberOne.subtract(numberTwo).value().toString();
+        const total = numberOne.subtract(nakedNumberTwo).value().toString();
         setCurrentTotal(total);
       } else if (op === "*") {
-        const total = numberOne.multiply(numberTwo).value().toString();
+        const total = numberOne.multiply(nakedNumberTwo).value().toString();
         setCurrentTotal(total);
       } else if (op === "/") {
-        const total = numberOne.divide(numberTwo).value().toString();
+        const total = numberOne.divide(nakedNumberTwo).value().toString();
+        setCurrentTotal(total);
+      } else if (op === "^") {
+        const total = Math.pow(nakedNumberOne, nakedNumberTwo).toString();
         setCurrentTotal(total);
       }
     }
