@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "center",
+    margin: "10px 0",
   },
   inner: {
     marginLeft: "3px",

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import numeral from "numeral";
 
 import Operation from "./Operation";
@@ -66,7 +66,9 @@ const Calculator = () => {
 
   return (
     <div>
-      <h1>React Calculator</h1>
+      <Typography variant="h4" component="h1">
+        React Calculator
+      </Typography>
       <Display
         currentDisplay={currentOperations}
         totalHistory={totalHistory}
