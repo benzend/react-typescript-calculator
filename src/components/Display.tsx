@@ -7,10 +7,16 @@ import { TotalHistoryLayout } from "../layouts/TotalHistoryLayout";
 interface Props {
   currentDisplay: string[];
   totalHistory: string[];
+  reversedHistory: string[];
   currentTotal: string;
 }
 
-const Display = ({ currentDisplay, totalHistory, currentTotal }: Props) => {
+const Display = ({
+  currentDisplay,
+  totalHistory,
+  reversedHistory,
+  currentTotal,
+}: Props) => {
   return (
     <div>
       <CurrentDisplayLayout>
@@ -24,9 +30,15 @@ const Display = ({ currentDisplay, totalHistory, currentTotal }: Props) => {
         </Typography>
       </CurrentTotalLayout>
       <TotalHistoryLayout totalHistory={totalHistory}>
-        <Typography variant="h6" color="textSecondary">
-          {totalHistory}
-        </Typography>
+        {reversedHistory.map((hist) => (
+          <Typography
+            key={hist + " " + currentDisplay}
+            variant="h6"
+            color="textSecondary"
+          >
+            {hist}
+          </Typography>
+        ))}
       </TotalHistoryLayout>
     </div>
   );

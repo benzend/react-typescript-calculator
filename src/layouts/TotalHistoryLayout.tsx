@@ -1,16 +1,19 @@
 import { Box, makeStyles } from "@material-ui/core";
 
 interface Props {
-  children: React.AllHTMLAttributes<string>;
+  children: any;
   totalHistory: string[];
 }
 
 const useStyles = makeStyles(() => ({
   root: {
+    display: "flex",
+    flexDirection: "column",
     height: "0",
+    overflow: "hidden",
     transition: "all .8s ease",
     "&.active": {
-      height: "40px",
+      height: "100px",
     },
   },
 }));

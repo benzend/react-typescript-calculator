@@ -30,7 +30,14 @@ const Calculator = () => {
 
   const [currentOperations, setCurrentOperations] = useState(["", "", ""]);
   const [totalHistory, setTotalHistory] = useState([]);
+  const [reversedHistory, setReversedHistory] = useState([]);
   const [currentTotal, setCurrentTotal] = useState("");
+
+  useEffect(() => {
+    const historyCopy = [...totalHistory];
+    const reversed = historyCopy.reverse();
+    setReversedHistory(reversed);
+  }, [totalHistory]);
 
   useEffect(() => {
     const numberOne = numeral(currentOperations[0]);
@@ -64,6 +71,7 @@ const Calculator = () => {
         currentDisplay={currentOperations}
         totalHistory={totalHistory}
         currentTotal={currentTotal}
+        reversedHistory={reversedHistory}
       />
       <Grid container>
         {operations.map((operation) => (
