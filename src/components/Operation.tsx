@@ -51,26 +51,28 @@ const Operation = ({
         setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       }
-    } else if (operation === "+") {
-      const ops = [...currentOperations];
-      ops[1] += operation;
-      setCurrentOperations(ops);
-    } else if (operation === "-") {
-      const ops = [...currentOperations];
-      ops[1] += operation;
-      setCurrentOperations(ops);
-    } else if (operation === "/") {
-      const ops = [...currentOperations];
-      ops[1] += operation;
-      setCurrentOperations(ops);
-    } else if (operation === "*") {
-      const ops = [...currentOperations];
-      ops[1] += operation;
-      setCurrentOperations(ops);
-    } else if (operation === "^") {
-      const ops = [...currentOperations];
-      ops[1] += operation;
-      setCurrentOperations(ops);
+    } else if (currentOperations[0] !== "" && currentOperations[1] === "") {
+      if (operation === "+") {
+        const ops = [...currentOperations];
+        ops[1] += operation;
+        setCurrentOperations(ops);
+      } else if (operation === "-") {
+        const ops = [...currentOperations];
+        ops[1] += operation;
+        setCurrentOperations(ops);
+      } else if (operation === "/") {
+        const ops = [...currentOperations];
+        ops[1] += operation;
+        setCurrentOperations(ops);
+      } else if (operation === "*") {
+        const ops = [...currentOperations];
+        ops[1] += operation;
+        setCurrentOperations(ops);
+      } else if (operation === "^") {
+        const ops = [...currentOperations];
+        ops[1] += operation;
+        setCurrentOperations(ops);
+      }
     } else if (operation === ".") {
       if (currentOperations[1] === "" && !currentOperations[0].includes(".")) {
         const ops = [...currentOperations];
