@@ -1,9 +1,12 @@
 import Calculator from "./components/Calculator";
+import { EntireCalculatorLayout } from "./layouts/EntireCalculatorLayout";
 
 function App() {
   return (
     <div className="App">
-      <Calculator />
+      <EntireCalculatorLayout>
+        <Calculator />
+      </EntireCalculatorLayout>
     </div>
   );
 }

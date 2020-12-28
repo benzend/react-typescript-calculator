@@ -4,6 +4,7 @@ import numeral from "numeral";
 
 import Operation from "./Operation";
 import Display from "./Display";
+import { ButtonLayout } from "../layouts/ButtonLayout";
 
 const Calculator = () => {
   const operations = [
@@ -66,15 +67,16 @@ const Calculator = () => {
       />
       <Grid container>
         {operations.map((operation) => (
-          <Operation
-            key={operation}
-            operation={operation}
-            currentOperations={currentOperations}
-            setCurrentOperations={setCurrentOperations}
-            setTotalHistory={setTotalHistory}
-            currentTotal={currentTotal}
-            setCurrentTotal={setCurrentTotal}
-          />
+          <ButtonLayout key={operation}>
+            <Operation
+              operation={operation}
+              currentOperations={currentOperations}
+              setCurrentOperations={setCurrentOperations}
+              setTotalHistory={setTotalHistory}
+              currentTotal={currentTotal}
+              setCurrentTotal={setCurrentTotal}
+            />
+          </ButtonLayout>
         ))}
       </Grid>
     </div>
