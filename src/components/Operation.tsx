@@ -1,4 +1,3 @@
-import numeral from "numeral";
 import { Button, Grid } from "@material-ui/core";
 
 interface Props {
@@ -31,38 +30,25 @@ const Operation = ({
         setCurrentOperations(ops);
       }
     } else if (operation === "=") {
-      const firstNum: number = parseFloat(currentOperations[0]);
-      const secondNum: number = parseFloat(currentOperations[2]);
-      const numeralOne = numeral(firstNum);
       if (currentOperations[1] === "+") {
-        const total = numeralOne.add(secondNum).value();
-        const stringedTotal: string = total.toString();
-        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
-        setCurrentOperations([stringedTotal, "", ""]);
+        setTotalHistory((prev: string[]) => [...prev, currentTotal]);
+        setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       } else if (currentOperations[1] === "-") {
-        const total = numeralOne.subtract(secondNum).value();
-        const stringedTotal: string = total.toString();
-        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
-        setCurrentOperations([stringedTotal, "", ""]);
+        setTotalHistory((prev: string[]) => [...prev, currentTotal]);
+        setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       } else if (currentOperations[1] === "/") {
-        const total = numeralOne.divide(secondNum).value();
-        const stringedTotal: string = total.toString();
-        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
-        setCurrentOperations([stringedTotal, "", ""]);
+        setTotalHistory((prev: string[]) => [...prev, currentTotal]);
+        setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       } else if (currentOperations[1] === "*") {
-        const total = numeralOne.multiply(secondNum).value();
-        const stringedTotal: string = total.toString();
-        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
-        setCurrentOperations([stringedTotal, "", ""]);
+        setTotalHistory((prev: string[]) => [...prev, currentTotal]);
+        setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       } else if (currentOperations[1] === "^") {
-        const total = Math.pow(firstNum, secondNum);
-        const stringedTotal: string = total.toString();
-        setTotalHistory((prev: string[]) => [...prev, stringedTotal]);
-        setCurrentOperations([stringedTotal, "", ""]);
+        setTotalHistory((prev: string[]) => [...prev, currentTotal]);
+        setCurrentOperations([currentTotal, "", ""]);
         setCurrentTotal("");
       }
     } else if (operation === "+") {
@@ -100,6 +86,7 @@ const Operation = ({
       }
     } else if (operation === "CLR") {
       setCurrentOperations(["", "", ""]);
+      setCurrentTotal("");
     }
   };
   return (
