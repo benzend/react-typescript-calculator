@@ -16,6 +16,8 @@ A simple calculator made with React.js and TypeScript and styled with Material U
 - Multiplication
 - Division
 - To The Power
+- Decimals
+- Negative Integers
 - History Log
 - Answer pre-render
 
