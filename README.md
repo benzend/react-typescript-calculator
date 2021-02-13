@@ -1,3 +1,27 @@
+# React Calculator
+
+A simple calculator made with React.js and TypeScript and styled with Material UI. 
+
+## Tech Stack
+
+- React.js
+- TypeScript
+- Material UI
+- Number.js
+
+## Features/Functions
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- To The Power
+- Decimals
+- Negative Integers
+- History Log
+- Answer pre-render
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
