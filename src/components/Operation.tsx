@@ -3,10 +3,10 @@ import { Button, Grid } from "@material-ui/core";
 interface Props {
   operation: string;
   currentOperations: string[];
-  setCurrentOperations: Function;
-  setTotalHistory: Function;
+  setCurrentOperations: React.Dispatch<React.SetStateAction<string[]>>;
+  setTotalHistory: React.Dispatch<React.SetStateAction<any>>;
   currentTotal: string;
-  setCurrentTotal: Function;
+  setCurrentTotal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Operation = ({
@@ -67,6 +67,7 @@ const Operation = ({
     } else if (operation === "CLR") {
       setCurrentOperations(["", "", ""]);
       setCurrentTotal("");
+      setTotalHistory([]);
     }
     if (currentOperations[0] !== "" && currentOperations[1] === "") {
       if (operation === "+") {

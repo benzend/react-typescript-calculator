@@ -30,9 +30,10 @@ const Display = ({
         </Typography>
       </CurrentTotalLayout>
       <TotalHistoryLayout totalHistory={totalHistory}>
-        {reversedHistory.map((hist) => (
+        {reversedHistory.map((hist, i) => (
+          // change index
           <Typography
-            key={hist + " " + currentDisplay}
+            key={hist + " " + currentDisplay + i}
             variant="h6"
             color="textSecondary"
           >
